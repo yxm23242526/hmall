@@ -39,12 +39,13 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
+
+        <!--nacos-->
         <dependency>
-            <groupId>com.heima</groupId>
-            <artifactId>hm-service</artifactId>
-            <version>1.0.0</version>
-            <scope>compile</scope>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
