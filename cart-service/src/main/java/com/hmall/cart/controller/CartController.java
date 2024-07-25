@@ -1,10 +1,12 @@
 package com.hmall.cart.controller;
 
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.hmall.cart.domain.dto.CartFormDTO;
 import com.hmall.cart.domain.po.Cart;
 import com.hmall.cart.domain.vo.CartVO;
 import com.hmall.cart.service.ICartService;
+import com.hmall.common.consts.RequestConst;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -42,7 +44,8 @@ public class CartController {
 
     @ApiOperation("查询购物车列表")
     @GetMapping
-    public List<CartVO> queryMyCarts(){
+    public List<CartVO> queryMyCarts(@RequestHeader(value = RequestConst.USER_HEADER, required = false) String userInfo){
+        System.out.println("userinfo = " + userInfo);
         return cartService.queryMyCarts();
     }
     @ApiOperation("批量删除购物车中商品")
