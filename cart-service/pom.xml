@@ -58,11 +58,10 @@
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
         </dependency>
 
-
+        <!--seata-->
         <dependency>
-            <groupId>com.heima</groupId>
-            <artifactId>hm-api</artifactId>
-            <version>1.0.0</version>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
         </dependency>
 
         <!--nacos配置管理-->
@@ -75,6 +74,13 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.heima</groupId>
+            <artifactId>hm-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
