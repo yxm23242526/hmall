@@ -1,5 +1,6 @@
 package com.hmall.trade.listener;
 
+import com.hmall.trade.domain.po.Order;
 import com.hmall.trade.service.IOrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.Exchange;
@@ -23,6 +24,10 @@ public class PayStatusListener {
             key = {"pay.success"}
     ))
     public void paySuccessListener(Long orderId){
+        Order order = orderService.getById(orderId);
+        if (order == null || order.getStatus() != 1){
+            return;
+        }
         orderService.markOrderPaySuccess(orderId);
     }
 

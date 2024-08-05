@@ -1,5 +1,6 @@
 package com.hmall.pay.controller;
 
+import com.hmall.api.dto.PayOrderDTO;
 import com.hmall.common.exception.BizIllegalException;
 import com.hmall.common.utils.BeanUtils;
 import com.hmall.pay.domain.dto.PayApplyDTO;
@@ -46,5 +47,16 @@ public class PayController {
     public void tryPayOrderByBalance(@PathVariable("id") Long id, @RequestBody PayOrderFormDTO payOrderFormDTO){
         payOrderFormDTO.setId(id);
         payOrderService.tryPayOrderByBalance(payOrderFormDTO);
+    }
+
+
+    /**
+     * 根据交易订单id查询支付单
+     * @param id 业务订单id
+     * @return 支付单信息
+     */
+    @GetMapping("/pay-orders/biz/{id}")
+    PayOrderDTO queryPayOrderByBizOrderNo(@PathVariable("id") Long id){
+        return payOrderService.queryPayOrderByBizOrderNo(id);
     }
 }
